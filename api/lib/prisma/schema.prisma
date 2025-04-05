@@ -1,0 +1,30 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Wilayah_Level_1_2 {
+  kode      String   @id @db.VarChar(13)
+  nama      String?  @db.VarChar(100)
+  ibukota   String?  @db.VarChar(100)
+  lat       Float?   @db.Double
+  lng       Float?   @db.Double
+  elv       Float    @default(0) @db.Float
+  tz        Int?     @db.TinyInt
+  luas      Float?   @db.Double
+  penduduk  Float?   @db.Double
+  path      String?  @db.LongText
+  status    Int?     @db.TinyInt
+
+  @@index([kode])
+}

@@ -1,0 +1,29 @@
+{
+  "name": "api-nusantarakita",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Yuefii",
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "^6.5.0",
+    "express": "^5.1.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^22.14.0",
+    "nodemon": "^3.1.9",
+    "prisma": "^6.5.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "scripts": {
+    "build": "tsc --project ./",
+    "api:dev": "nodemon index.ts",
+    "api:prod": "node dist/index.js"
+  },
+  "prisma": {
+    "schema": "lib/prisma/schema.prisma"
+  }
+}
