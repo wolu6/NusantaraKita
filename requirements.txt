@@ -1,7 +1,0 @@
-mysql-connector-python
-pandas
-python-dotenv
-SQLAlchemy
-jupyter
-Flask-SQLAlchemy
-Flask
