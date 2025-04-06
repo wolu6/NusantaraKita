@@ -12,5 +12,8 @@ routes.get('/', (req: Request, res: Response): void => {
 
 routes.get('/provinsi', (req: Request, res: Response) => provinsi.Get(req, res));
 routes.get('/kab-kota', (req: Request, res: Response) => kabupatenKota.Get(req, res));
+routes.get('/:kode/kab-kota', async (req: Request, res: Response) => {
+	await kabupatenKota.GetByProvinsi(req, res);
+});
 
 export default routes;
