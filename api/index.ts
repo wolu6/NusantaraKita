@@ -26,7 +26,7 @@ class App {
   async dbconn() {
     try {
       await prisma.$connect();
-      console.log('Connected to the database MYSQL!');
+      console.log('Connected to the database MYSQL with Prisma!');
     } catch (error) {
       console.error('Error connecting to the database:', error);
     }
