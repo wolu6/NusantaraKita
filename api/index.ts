@@ -2,7 +2,6 @@ import morgan from 'morgan';
 import routes from './routes';
 import prisma from './lib/prisma/config';
 import express from 'express';
-import cors from 'cors';
 
 class App {
   public server;
