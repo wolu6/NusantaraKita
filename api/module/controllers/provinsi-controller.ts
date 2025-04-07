@@ -12,7 +12,8 @@ class ProvinsiControllers {
     try {
       const limit = parseInt(req.query.limit as string) || 10;
       const halaman = parseInt(req.query.halaman as string) || 1;
-      const data = await this.provinsiService.Get(limit, halaman);
+      const pagination = req.query.pagination === 'false' ? false : true;
+      const data = await this.provinsiService.Get(limit, halaman, pagination);
       res.status(200).json(data);
     } catch (error) {
       res.status(500).json({ error: error.message });

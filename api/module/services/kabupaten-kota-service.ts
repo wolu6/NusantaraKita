@@ -35,15 +35,27 @@ class KabupatenKotaServices {
     }
   }
 
-  async GetByProvinsi(kodeProvinsi: string, limit: number, halaman: number) {
+  async GetByProvinsi(kodeProvinsi: string, limit: number, halaman: number, pagination: boolean) {
     try {
+      const whereCondition = {
+        kode_provinsi: kodeProvinsi
+      };
+
+      if (!pagination) {
+        const data = await prisma.nk_kabupaten_kota.findMany({
+          where: whereCondition,
+        });
+        if (data.length === 0) {
+          throw new Error('tidak ditemukan data');
+        }
+
+        return { data };
+      }
+
       if (halaman <= 0) {
         throw new Error('nomor halaman tidak valid, halaman harus lebih besar dari 0');
       }
 
-      const whereCondition = {
-        kode_provinsi: kodeProvinsi
-      };
 
       const totalItem = await prisma.nk_kabupaten_kota.count({
         where: whereCondition

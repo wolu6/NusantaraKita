@@ -23,13 +23,14 @@ class KabupatenKotaControllers {
     try {
       const kode = req.params.kode;
       const limit = parseInt(req.query.limit as string) || 10;
+      const pagination = req.query.pagination === 'false' ? false : true;
       const halaman = parseInt(req.query.halaman as string) || 1;
 
       if (!kode) {
         return res.status(400).json({ error: 'Kode provinsi diperlukan' });
       }
 
-      const data = await this.kabupatenKotaService.GetByProvinsi(kode, limit, halaman);
+      const data = await this.kabupatenKotaService.GetByProvinsi(kode, limit, halaman, pagination);
       res.status(200).json(data);
     } catch (error) {
       res.status(500).json({ error: error.message });
