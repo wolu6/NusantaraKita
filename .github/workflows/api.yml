@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  test-build:
+  check-formating-test-build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,6 +21,11 @@ jobs:
         run: |
           cd api
           npm install
+
+      - name: Checking formating code style
+        run: |
+          cd api
+          npm run format:check
 
       - name: Build API
         run: |

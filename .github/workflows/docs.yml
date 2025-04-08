@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  test-and-deploy:
+  check-formating-test-build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,6 +21,11 @@ jobs:
         run: |
           cd docs
           npm install
+
+      - name: Checking formating code style
+        run: |
+          cd docs
+          npm run format:check
 
       - name: Build Vue app
         run: |
