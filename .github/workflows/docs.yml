@@ -21,9 +21,9 @@ jobs:
       - name: Install dependencies
         run: |
           cd docs
-          yarn install
+          npm install
 
       - name: Build Vue app
         run: |
           cd docs
-          yarn build
+          npm build

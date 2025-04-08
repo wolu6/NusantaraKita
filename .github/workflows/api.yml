@@ -16,14 +16,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-          cache: 'yarn'
 
       - name: Install dependencies
         run: |
           cd api
-          yarn install
+          npm install
 
       - name: Build API
         run: |
           cd api
-          yarn build
+          npm build
