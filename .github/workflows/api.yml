@@ -3,12 +3,8 @@ name: API CI/CD
 on:
   push:
     branches: [ "main" ]
-    paths:
-      - 'api/**'
   pull_request:
     branches: [ "main" ]
-    paths:
-      - 'api/**'
 
 jobs:
   test-build:
@@ -23,7 +19,11 @@ jobs:
           cache: 'yarn'
 
       - name: Install dependencies
-        run: yarn --cwd ./api install
+        run: |
+          cd api
+          yarn install
 
       - name: Build API
-        run: yarn --cwd ./api build
+        run: |
+          cd api
+          yarn build

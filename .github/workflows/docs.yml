@@ -3,12 +3,8 @@ name: Docs CI/CD
 on:
   push:
     branches: [ "main" ]
-    paths:
-      - 'docs/**'
   pull_request:
     branches: [ "main" ]
-    paths:
-      - 'docs/**'
 
 jobs:
   test-and-deploy:
@@ -23,7 +19,11 @@ jobs:
           cache: 'yarn'
 
       - name: Install dependencies
-        run: yarn --cwd ./docs install
+        run: |
+          cd docs
+          yarn install
 
       - name: Build Vue app
-        run: yarn --cwd ./docs build
+        run: |
+          cd docs
+          yarn build
