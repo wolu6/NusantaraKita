@@ -1,0 +1,29 @@
+name: Docs CI/CD
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'docs/**'
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - 'docs/**'
+
+jobs:
+  test-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn --cwd ./docs install
+
+      - name: Build Vue app
+        run: yarn --cwd ./docs build
