@@ -1,8 +1,17 @@
 import prisma from "../../lib/prisma/config";
 
 class ProvinsiServices {
-  async Get(limit: number, halaman: number) {
+  async Get(limit: number, halaman: number, pagination: boolean) {
     try {
+      if (!pagination) {
+        const data = await prisma.nk_provinsi.findMany();
+        if (data.length === 0) {
+          throw new Error('tidak ditemukan data');
+        }
+
+        return { data };
+      }
+
       if (halaman <= 0) {
         throw new Error('nomor halaman tidak valid, halaman harus lebih besar dari 0');
       }

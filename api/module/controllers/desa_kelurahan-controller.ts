@@ -1,25 +1,25 @@
 import { Request, Response } from 'express';
-import KabupatenKotaService from '../../module/services/kabupaten-kota-service';
+import DesaKelurahanServices from '../../module/services/desa-kelurahan-service';
 
-class KabupatenKotaControllers {
-  private kabupatenKotaService: KabupatenKotaService;
+class DesaKelurahanControllers {
+  private desaKelurahanService: DesaKelurahanServices;
 
   constructor() {
-    this.kabupatenKotaService = new KabupatenKotaService();
+    this.desaKelurahanService = new DesaKelurahanServices();
   }
 
   async Get(req: Request, res: Response) {
     try {
       const limit = parseInt(req.query.limit as string) || 10;
       const halaman = parseInt(req.query.halaman as string) || 1;
-      const data = await this.kabupatenKotaService.Get(limit, halaman);
+      const data = await this.desaKelurahanService.Get(limit, halaman);
       res.status(200).json(data);
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
   }
 
-  async GetByProvinsi(req: Request, res: Response) {
+  async GetByKecamatan(req: Request, res: Response) {
     try {
       const kode = req.params.kode;
       const limit = parseInt(req.query.limit as string) || 10;
@@ -30,7 +30,7 @@ class KabupatenKotaControllers {
         return res.status(400).json({ error: 'Kode provinsi diperlukan' });
       }
 
-      const data = await this.kabupatenKotaService.GetByProvinsi(kode, limit, halaman, pagination);
+      const data = await this.desaKelurahanService.GetByKecamatan(kode, limit, halaman, pagination);
       res.status(200).json(data);
     } catch (error) {
       res.status(500).json({ error: error.message });
@@ -38,4 +38,4 @@ class KabupatenKotaControllers {
   }
 }
 
-export default KabupatenKotaControllers;
+export default DesaKelurahanControllers;

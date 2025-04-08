@@ -25,40 +25,48 @@ const data = {
         {
           title: 'Overview',
           url: '/',
+          isActive: false,
         },
         {
           title: 'Tentang API',
           url: '/tentang-api',
+          isActive: false,
         },
         {
           title: 'Fitur Utama',
           url: '/fitur-utama',
+          isActive: false,
         },
         {
           title: 'Panduan Instalasi',
           url: '/panduan-instalasi',
+          isActive: false,
         },
       ],
     },
     {
-      title: 'Endpoint API',
+      title: 'API Documentation',
       url: '#',
       items: [
         {
           title: 'GET Provinsi',
-          url: '/endpoint/get-provinsi',
+          url: '/api-documentation/get-provinsi',
+          isActive: false,
         },
         {
           title: 'GET Kabupaten/Kota',
-          url: '/endpoint/get-kabupaten-kota',
+          url: '/api-documentation/get-kabupaten-kota',
+          isActive: false,
         },
         {
           title: 'GET Kecamatan',
-          url: '/endpoint/get-kecamatan',
+          url: '/api-documentation/get-kecamatan',
+          isActive: false,
         },
         {
           title: 'GET Desa/Kelurahan',
-          url: '/endpoint/get-desa-kelurahan',
+          url: '/api-documentation/get-desa-kelurahan',
+          isActive: false,
         },
       ],
     },
@@ -69,18 +77,22 @@ const data = {
         {
           title: 'Provinsi',
           url: '/data-wilayah/provinsi',
+          isActive: false,
         },
         {
           title: 'Kabupaten/Kota',
           url: '/data-wilayah/kabupaten-kota',
+          isActive: false,
         },
         {
           title: 'Kecamatan',
           url: '/data-wilayah/kecamatan',
+          isActive: false,
         },
         {
           title: 'Desa/Kelurahan',
           url: '/data-wilayah/desa-kelurahan',
+          isActive: false,
         },
       ],
     },
@@ -95,11 +107,11 @@ const data = {
         <SidebarMenuItem>
           <SidebarMenuButton size="lg" as-child>
             <a href="/">
-              <div class="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+              <div class="flex mt-1 aspect-square size-10 items-center justify-center rounded-lg text-sidebar-primary-foreground">
                 <img src="/logo.png" alt="logo nusantara kita">
               </div>
               <div class="flex flex-col gap-0.5 leading-none">
-                <span class="font-medium">Nusantara Kita</span>
+                <span class="text-base font-medium">Nusantara Kita</span>
                 <span class="">v2.0</span>
               </div>
             </a>

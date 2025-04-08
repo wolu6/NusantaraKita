@@ -1,18 +1,18 @@
 import prisma from "../../lib/prisma/config";
 
-class KabupatenKotaServices {
+class DesaKelurahanServices {
   async Get(limit: number, halaman: number) {
     try {
       if (halaman <= 0) {
         throw new Error('nomor halaman tidak valid, halaman harus lebih besar dari 0');
       }
-      const totalItem = await prisma.nk_kabupaten_kota.count();
+      const totalItem = await prisma.nk_desa_kelurahan.count();
       const totalHalaman = Math.ceil(totalItem / limit);
       if (halaman > totalHalaman) {
         throw new Error(`nomor halaman melebihi total halaman. Halaman maksimum adalah ${totalHalaman}`);
       }
       const skip = (halaman - 1) * limit;
-      const data = await prisma.nk_kabupaten_kota.findMany({
+      const data = await prisma.nk_desa_kelurahan.findMany({
         take: limit,
         skip: skip,
       });
@@ -35,14 +35,14 @@ class KabupatenKotaServices {
     }
   }
 
-  async GetByProvinsi(kodeProvinsi: string, limit: number, halaman: number, pagination: boolean) {
+  async GetByKecamatan(kodeKecamatan: string, limit: number, halaman: number, pagination: boolean) {
     try {
       const whereCondition = {
-        kode_provinsi: kodeProvinsi
+        kode_kecamatan: kodeKecamatan
       };
 
       if (!pagination) {
-        const data = await prisma.nk_kabupaten_kota.findMany({
+        const data = await prisma.nk_desa_kelurahan.findMany({
           where: whereCondition,
         });
         if (data.length === 0) {
@@ -57,7 +57,7 @@ class KabupatenKotaServices {
       }
 
 
-      const totalItem = await prisma.nk_kabupaten_kota.count({
+      const totalItem = await prisma.nk_desa_kelurahan.count({
         where: whereCondition
       });
 
@@ -68,7 +68,7 @@ class KabupatenKotaServices {
       }
 
       const skip = (halaman - 1) * limit;
-      const data = await prisma.nk_kabupaten_kota.findMany({
+      const data = await prisma.nk_desa_kelurahan.findMany({
         where: whereCondition,
         take: limit,
         skip: skip,
@@ -94,4 +94,4 @@ class KabupatenKotaServices {
   }
 }
 
-export default KabupatenKotaServices
+export default DesaKelurahanServices

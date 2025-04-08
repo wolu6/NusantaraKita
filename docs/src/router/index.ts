@@ -2,10 +2,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Overview from '@/view/Overview.vue'
 import TentangAPI from '@/view/TentangAPI.vue'
 import PanduanInstalasi from '@/view/PanduanInstalasi.vue'
-import GetProvinsi from '@/view/get/GetProvinsi.vue'
-import GetKabKota from '@/view/get/GetKabKota.vue'
-import GetKecamatan from '@/view/get/GetKecamatan.vue'
-import GetDesaKel from '@/view/get/GetDesaKel.vue'
+import GetProvinsi from '@/view/documentation/GetProvinsi.vue'
+import GetKabKota from '@/view/documentation/GetKabKota.vue'
+import GetKecamatan from '@/view/documentation/GetKecamatan.vue'
+import GetDesaKel from '@/view/documentation/GetDesaKel.vue'
 import Provinsi from '@/view/wilayah/Provinsi.vue'
 import KabKota from '@/view/wilayah/KabKota.vue'
 import Kecamatan from '@/view/wilayah/Kecamatan.vue'
@@ -36,22 +36,22 @@ const router = createRouter({
       component: PanduanInstalasi
     },
     {
-      path: '/endpoint/get-provinsi',
+      path: '/api-documentation/get-provinsi',
       name: 'GET Provinsi',
       component: GetProvinsi
     },
     {
-      path: '/endpoint/get-kabupaten-kota',
+      path: '/api-documentation/get-kabupaten-kota',
       name: 'GET Kabupaten/Kota',
       component: GetKabKota
     },
     {
-      path: '/endpoint/get-kecamatan',
+      path: '/api-documentation/get-kecamatan',
       name: 'GET Kecamatan',
       component: GetKecamatan
     },
     {
-      path: '/endpoint/get-desa-kelurahan',
+      path: '/api-documentation/get-desa-kelurahan',
       name: 'Get Desa/Kelurahan',
       component: GetDesaKel
     },
