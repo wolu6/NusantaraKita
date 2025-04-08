@@ -21,20 +21,18 @@
 
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
 import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
-  BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
 import { Separator } from '@/components/ui/separator'
 import { SidebarTrigger } from '@/components/ui/sidebar'
 
 const route = useRoute()
-const router = useRouter()
 const breadcrumbs = ref<Array<{name: string, href: string}>>([])
 
 const updateBreadcrumbs = () => {
@@ -61,8 +59,4 @@ const updateBreadcrumbs = () => {
 watch(() => route.path, () => {
   updateBreadcrumbs()
 }, { immediate: true })
-
-const navigateTo = (href: string) => {
-  router.push(href)
-}
 </script>

@@ -25,18 +25,22 @@ const data = {
         {
           title: 'Overview',
           url: '/',
+          isActive: false,
         },
         {
           title: 'Tentang API',
           url: '/tentang-api',
+          isActive: false,
         },
         {
           title: 'Fitur Utama',
           url: '/fitur-utama',
+          isActive: false,
         },
         {
           title: 'Panduan Instalasi',
           url: '/panduan-instalasi',
+          isActive: false,
         },
       ],
     },
@@ -47,18 +51,22 @@ const data = {
         {
           title: 'GET Provinsi',
           url: '/endpoint/get-provinsi',
+          isActive: false,
         },
         {
           title: 'GET Kabupaten/Kota',
           url: '/endpoint/get-kabupaten-kota',
+          isActive: false,
         },
         {
           title: 'GET Kecamatan',
           url: '/endpoint/get-kecamatan',
+          isActive: false,
         },
         {
           title: 'GET Desa/Kelurahan',
           url: '/endpoint/get-desa-kelurahan',
+          isActive: false,
         },
       ],
     },
@@ -69,18 +77,22 @@ const data = {
         {
           title: 'Provinsi',
           url: '/data-wilayah/provinsi',
+          isActive: false,
         },
         {
           title: 'Kabupaten/Kota',
           url: '/data-wilayah/kabupaten-kota',
+          isActive: false,
         },
         {
           title: 'Kecamatan',
           url: '/data-wilayah/kecamatan',
+          isActive: false,
         },
         {
           title: 'Desa/Kelurahan',
           url: '/data-wilayah/desa-kelurahan',
+          isActive: false,
         },
       ],
     },

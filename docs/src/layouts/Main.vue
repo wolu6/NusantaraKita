@@ -14,6 +14,5 @@ import AppHeader from '@/components/AppHeader.vue'
 import {
   SidebarInset,
   SidebarProvider,
-  SidebarTrigger,
 } from '@/components/ui/sidebar'
 </script>
