@@ -74,7 +74,7 @@ const router = createRouter({
       path: '/data-wilayah/desa-kelurahan',
       name: 'Data Desa/Kelurahan',
       component: DesaKel
-    },
+    }
   ]
 })
 

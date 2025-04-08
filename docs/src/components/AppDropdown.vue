@@ -5,55 +5,98 @@
     <div v-else>
       <div class="flex flex-col md:flex-row gap-4">
         <div class="flex-1">
-          <label for="provinsi" class="block mb-2 text-sm font-medium text-gray-900">
+          <label
+            for="provinsi"
+            class="block mb-2 text-sm font-medium text-gray-900"
+          >
             Pilih Provinsi
           </label>
-          <select id="provinsi" v-model="selectedProvinsiKode"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+          <select
+            id="provinsi"
+            v-model="selectedProvinsiKode"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          >
             <option value="">-- Pilih Provinsi --</option>
-            <option v-for="provinsi in provinsiList" :key="provinsi.kode" :value="provinsi.kode">
+            <option
+              v-for="provinsi in provinsiList"
+              :key="provinsi.kode"
+              :value="provinsi.kode"
+            >
               {{ provinsi.nama }}
             </option>
           </select>
         </div>
 
         <div v-if="selectedProvinsiKode" class="flex-1">
-          <label for="kabupaten" class="block mb-2 text-sm font-medium text-gray-900">
+          <label
+            for="kabupaten"
+            class="block mb-2 text-sm font-medium text-gray-900"
+          >
             Pilih Kabupaten/Kota
           </label>
           <div v-if="isLoadingKabupaten">Memuat data kabupaten/kota...</div>
-          <select v-else id="kabupaten" v-model="selectedKabupatenKotaKode"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+          <select
+            v-else
+            id="kabupaten"
+            v-model="selectedKabupatenKotaKode"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          >
             <option value="">-- Pilih Kabupaten/Kota --</option>
-            <option v-for="kabupaten in kabupatenKotaList" :key="kabupaten.kode" :value="kabupaten.kode">
+            <option
+              v-for="kabupaten in kabupatenKotaList"
+              :key="kabupaten.kode"
+              :value="kabupaten.kode"
+            >
               {{ kabupaten.nama }}
             </option>
           </select>
         </div>
 
         <div v-if="selectedKabupatenKotaKode" class="flex-1">
-          <label for="kecamatan" class="block mb-2 text-sm font-medium text-gray-900">
+          <label
+            for="kecamatan"
+            class="block mb-2 text-sm font-medium text-gray-900"
+          >
             Pilih Kecamatan
           </label>
           <div v-if="isLoadingKecamatan">Memuat data kecamatan...</div>
-          <select v-else id="kecamatan" v-model="selectedKecamatanKode"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+          <select
+            v-else
+            id="kecamatan"
+            v-model="selectedKecamatanKode"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          >
             <option value="">-- Pilih Kecamatan --</option>
-            <option v-for="kecamatan in kecamatanList" :key="kecamatan.kode" :value="kecamatan.kode">
+            <option
+              v-for="kecamatan in kecamatanList"
+              :key="kecamatan.kode"
+              :value="kecamatan.kode"
+            >
               {{ kecamatan.nama }}
             </option>
           </select>
         </div>
 
         <div v-if="selectedKecamatanKode" class="flex-1">
-          <label for="desa" class="block mb-2 text-sm font-medium text-gray-900">
+          <label
+            for="desa"
+            class="block mb-2 text-sm font-medium text-gray-900"
+          >
             Pilih Desa/Kelurahan
           </label>
           <div v-if="isLoadingDesa">Memuat data desa/kelurahan...</div>
-          <select v-else id="desa" v-model="selectedDesaKelurahanKode"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+          <select
+            v-else
+            id="desa"
+            v-model="selectedDesaKelurahanKode"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          >
             <option value="">-- Pilih Desa/Kelurahan --</option>
-            <option v-for="desa in desaKelurahanList" :key="desa.kode" :value="desa.kode">
+            <option
+              v-for="desa in desaKelurahanList"
+              :key="desa.kode"
+              :value="desa.kode"
+            >
               {{ desa.nama }}
             </option>
           </select>
@@ -85,7 +128,7 @@ interface Provinsi {
   lng: number
 }
 
-const provinsiList = ref < Provinsi[] > ([])
+const provinsiList = ref<Provinsi[]>([])
 interface KabupatenKota {
   kode: string
   nama: string
@@ -93,7 +136,7 @@ interface KabupatenKota {
   lng: number
 }
 
-const kabupatenKotaList = ref < KabupatenKota[] > ([])
+const kabupatenKotaList = ref<KabupatenKota[]>([])
 interface Kecamatan {
   kode: string
   nama: string
@@ -101,7 +144,7 @@ interface Kecamatan {
   lng: number
 }
 
-const kecamatanList = ref < Kecamatan[] > ([])
+const kecamatanList = ref<Kecamatan[]>([])
 
 interface DesaKelurahan {
   kode: string
@@ -110,7 +153,7 @@ interface DesaKelurahan {
   lng: number
 }
 
-const desaKelurahanList = ref < DesaKelurahan[] > ([])
+const desaKelurahanList = ref<DesaKelurahan[]>([])
 
 const selectedProvinsiKode = ref('')
 const selectedKabupatenKotaKode = ref('')
@@ -121,7 +164,7 @@ const isLoading = ref(false)
 const isLoadingKabupaten = ref(false)
 const isLoadingKecamatan = ref(false)
 const isLoadingDesa = ref(false)
-const error = ref < string | null > (null)
+const error = ref<string | null>(null)
 
 const mapData = ref({
   nama: DEFAULT_PROVINSI.nama,
@@ -154,7 +197,9 @@ const fetchKabupatenKota = async (kodeProvinsi: string) => {
     desaKelurahanList.value = []
     selectedDesaKelurahanKode.value = ''
 
-    const response = await axios.get(`${BASE_URL}/${kodeProvinsi}/kab-kota?pagination=false`)
+    const response = await axios.get(
+      `${BASE_URL}/${kodeProvinsi}/kab-kota?pagination=false`
+    )
     kabupatenKotaList.value = response.data.data
 
     const provinsi = provinsiList.value.find(p => p.kode === kodeProvinsi)
@@ -177,12 +222,20 @@ const fetchKecamatan = async (kodeKabupaten: string) => {
     desaKelurahanList.value = []
     selectedDesaKelurahanKode.value = ''
 
-    const response = await axios.get(`${BASE_URL}/${kodeKabupaten}/kecamatan?pagination=false`)
+    const response = await axios.get(
+      `${BASE_URL}/${kodeKabupaten}/kecamatan?pagination=false`
+    )
     kecamatanList.value = response.data.data
 
-    const kabupaten = kabupatenKotaList.value.find(k => k.kode === kodeKabupaten)
+    const kabupaten = kabupatenKotaList.value.find(
+      k => k.kode === kodeKabupaten
+    )
     if (kabupaten) {
-      updateMapData(`${kabupaten.nama}, ${selectedProvinsi.value.nama}`, kabupaten.lat, kabupaten.lng)
+      updateMapData(
+        `${kabupaten.nama}, ${selectedProvinsi.value.nama}`,
+        kabupaten.lat,
+        kabupaten.lng
+      )
     }
   } catch (err) {
     error.value = (err as Error).message
@@ -198,7 +251,9 @@ const fetchDesaKelurahan = async (kodeKecamatan: string) => {
     desaKelurahanList.value = []
     selectedDesaKelurahanKode.value = ''
 
-    const response = await axios.get(`${BASE_URL}/${kodeKecamatan}/desa-kel?pagination=false`)
+    const response = await axios.get(
+      `${BASE_URL}/${kodeKecamatan}/desa-kel?pagination=false`
+    )
     desaKelurahanList.value = response.data.data
 
     const kecamatan = kecamatanList.value.find(k => k.kode === kodeKecamatan)
@@ -221,18 +276,22 @@ const updateMapData = (nama: string, lat: number, lng: number) => {
   mapData.value = { nama, lat, lng }
 }
 
-watch(selectedProvinsiKode, (newValue) => {
+watch(selectedProvinsiKode, newValue => {
   if (newValue) {
     fetchKabupatenKota(newValue)
   } else {
     kabupatenKotaList.value = []
     kecamatanList.value = []
     desaKelurahanList.value = []
-    updateMapData(DEFAULT_PROVINSI.nama, DEFAULT_PROVINSI.lat, DEFAULT_PROVINSI.lng)
+    updateMapData(
+      DEFAULT_PROVINSI.nama,
+      DEFAULT_PROVINSI.lat,
+      DEFAULT_PROVINSI.lng
+    )
   }
 })
 
-watch(selectedKabupatenKotaKode, (newValue) => {
+watch(selectedKabupatenKotaKode, newValue => {
   if (newValue) {
     fetchKecamatan(newValue)
   } else {
@@ -243,7 +302,7 @@ watch(selectedKabupatenKotaKode, (newValue) => {
   }
 })
 
-watch(selectedKecamatanKode, (newValue) => {
+watch(selectedKecamatanKode, newValue => {
   if (newValue) {
     fetchDesaKelurahan(newValue)
   } else {
@@ -259,7 +318,7 @@ watch(selectedKecamatanKode, (newValue) => {
   }
 })
 
-watch(selectedDesaKelurahanKode, (newValue) => {
+watch(selectedDesaKelurahanKode, newValue => {
   if (newValue) {
     const desa = desaKelurahanList.value.find(d => d.kode === newValue)
     if (desa) {
@@ -283,17 +342,24 @@ watch(selectedDesaKelurahanKode, (newValue) => {
 
 const selectedProvinsi = computed(() => {
   if (!selectedProvinsiKode.value) return DEFAULT_PROVINSI
-  return provinsiList.value.find(prov => prov.kode === selectedProvinsiKode.value) || DEFAULT_PROVINSI
+  return (
+    provinsiList.value.find(prov => prov.kode === selectedProvinsiKode.value) ||
+    DEFAULT_PROVINSI
+  )
 })
 
 const selectedKabupaten = computed(() => {
   if (!selectedKabupatenKotaKode.value) return null
-  return kabupatenKotaList.value.find(kab => kab.kode === selectedKabupatenKotaKode.value)
+  return kabupatenKotaList.value.find(
+    kab => kab.kode === selectedKabupatenKotaKode.value
+  )
 })
 
 const selectedKecamatan = computed(() => {
   if (!selectedKecamatanKode.value) return null
-  return kecamatanList.value.find(kec => kec.kode === selectedKecamatanKode.value)
+  return kecamatanList.value.find(
+    kec => kec.kode === selectedKecamatanKode.value
+  )
 })
 
 onMounted(() => {

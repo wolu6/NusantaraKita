@@ -11,7 +11,10 @@
                 {{ item.name }}
               </BreadcrumbLink>
             </BreadcrumbItem>
-            <BreadcrumbSeparator v-if="index < breadcrumbs.length - 1" class="hidden md:block" />
+            <BreadcrumbSeparator
+              v-if="index < breadcrumbs.length - 1"
+              class="hidden md:block"
+            />
           </template>
         </BreadcrumbList>
       </Breadcrumb>
@@ -27,13 +30,13 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
-  BreadcrumbSeparator,
+  BreadcrumbSeparator
 } from '@/components/ui/breadcrumb'
 import { Separator } from '@/components/ui/separator'
 import { SidebarTrigger } from '@/components/ui/sidebar'
 
 const route = useRoute()
-const breadcrumbs = ref<Array<{name: string, href: string}>>([])
+const breadcrumbs = ref<Array<{ name: string; href: string }>>([])
 
 const updateBreadcrumbs = () => {
   const pathArray = route.path.split('/').filter(item => item)
@@ -44,7 +47,9 @@ const updateBreadcrumbs = () => {
   for (let i = 0; i < pathArray.length; i++) {
     pathSoFar += `/${pathArray[i]}`
     crumbs.push({
-      name: pathArray[i].charAt(0).toUpperCase() + pathArray[i].slice(1).replace(/-/g, ' '),
+      name:
+        pathArray[i].charAt(0).toUpperCase() +
+        pathArray[i].slice(1).replace(/-/g, ' '),
       href: pathSoFar
     })
   }
@@ -56,7 +61,11 @@ const updateBreadcrumbs = () => {
   breadcrumbs.value = crumbs
 }
 
-watch(() => route.path, () => {
-  updateBreadcrumbs()
-}, { immediate: true })
+watch(
+  () => route.path,
+  () => {
+    updateBreadcrumbs()
+  },
+  { immediate: true }
+)
 </script>
