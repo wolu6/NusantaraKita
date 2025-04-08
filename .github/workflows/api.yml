@@ -25,4 +25,4 @@ jobs:
       - name: Build API
         run: |
           cd api
-          npm build
+          npm run build
