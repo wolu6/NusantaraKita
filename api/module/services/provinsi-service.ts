@@ -1,32 +1,36 @@
-import prisma from "../../lib/prisma/config";
+import prisma from '../../lib/prisma/config'
 
 class ProvinsiServices {
   async Get(limit: number, halaman: number, pagination: boolean) {
     try {
       if (!pagination) {
-        const data = await prisma.nk_provinsi.findMany();
+        const data = await prisma.nk_provinsi.findMany()
         if (data.length === 0) {
-          throw new Error('tidak ditemukan data');
+          throw new Error('tidak ditemukan data')
         }
 
-        return { data };
+        return { data }
       }
 
       if (halaman <= 0) {
-        throw new Error('nomor halaman tidak valid, halaman harus lebih besar dari 0');
+        throw new Error(
+          'nomor halaman tidak valid, halaman harus lebih besar dari 0'
+        )
       }
-      const totalItem = await prisma.nk_provinsi.count();
-      const totalHalaman = Math.ceil(totalItem / limit);
+      const totalItem = await prisma.nk_provinsi.count()
+      const totalHalaman = Math.ceil(totalItem / limit)
       if (halaman > totalHalaman) {
-        throw new Error(`nomor halaman melebihi total halaman. Halaman maksimum adalah ${totalHalaman}`);
+        throw new Error(
+          `nomor halaman melebihi total halaman. Halaman maksimum adalah ${totalHalaman}`
+        )
       }
-      const skip = (halaman - 1) * limit;
+      const skip = (halaman - 1) * limit
       const data = await prisma.nk_provinsi.findMany({
         take: limit,
-        skip: skip,
-      });
+        skip: skip
+      })
       if (data.length === 0) {
-        throw new Error('tidak ditemukan data untuk halaman yang diminta');
+        throw new Error('tidak ditemukan data untuk halaman yang diminta')
       }
 
       const result = {
@@ -34,13 +38,13 @@ class ProvinsiServices {
           total_item: totalItem,
           total_halaman: totalHalaman,
           halaman_saat_ini: halaman,
-          ukuran_halaman: limit,
+          ukuran_halaman: limit
         },
-        data: data,
-      };
-      return result;
+        data: data
+      }
+      return result
     } catch (error) {
-      throw new Error('Gagal mengambil data: ' + error.message);
+      throw new Error('Gagal mengambil data: ' + error.message)
     }
   }
 }
