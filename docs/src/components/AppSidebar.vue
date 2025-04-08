@@ -45,27 +45,27 @@ const data = {
       ],
     },
     {
-      title: 'Endpoint API',
+      title: 'API Documentation',
       url: '#',
       items: [
         {
           title: 'GET Provinsi',
-          url: '/endpoint/get-provinsi',
+          url: '/api-documentation/get-provinsi',
           isActive: false,
         },
         {
           title: 'GET Kabupaten/Kota',
-          url: '/endpoint/get-kabupaten-kota',
+          url: '/api-documentation/get-kabupaten-kota',
           isActive: false,
         },
         {
           title: 'GET Kecamatan',
-          url: '/endpoint/get-kecamatan',
+          url: '/api-documentation/get-kecamatan',
           isActive: false,
         },
         {
           title: 'GET Desa/Kelurahan',
-          url: '/endpoint/get-desa-kelurahan',
+          url: '/api-documentation/get-desa-kelurahan',
           isActive: false,
         },
       ],
