@@ -34,12 +34,24 @@ model nk_kabupaten_kota {
 }
 
 model nk_kecamatan {
-  kode           String             @id @db.VarChar(13)
-  nama           String?            @db.VarChar(100)
+  kode           String              @id @db.VarChar(13)
+  nama           String?             @db.VarChar(100)
   lat            Float?
   lng            Float?
-  kode_kab_kota  String?            @db.VarChar(13)
-  kabupaten_kota nk_kabupaten_kota? @relation(fields: [kode_kab_kota], references: [kode], onDelete: SetNull, onUpdate: Cascade)
+  kode_kab_kota  String?             @db.VarChar(13)
+  kabupaten_kota nk_kabupaten_kota?  @relation(fields: [kode_kab_kota], references: [kode], onDelete: SetNull, onUpdate: Cascade)
+  desa_kelurahan nk_desa_kelurahan[]
 
   @@index([kode_kab_kota], name: "fk_kec_kab_kota")
+}
+
+model nk_desa_kelurahan {
+  kode           String        @id @db.VarChar(13)
+  nama           String?       @db.VarChar(100)
+  lat            Float?
+  lng            Float?
+  kode_kecamatan String?       @db.VarChar(13)
+  kecamatan      nk_kecamatan? @relation(fields: [kode_kecamatan], references: [kode], onDelete: SetNull, onUpdate: Cascade)
+
+  @@index([kode_kecamatan], name: "fk_desa_kel_kec")
 }
