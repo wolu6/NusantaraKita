@@ -107,11 +107,11 @@ const data = {
         <SidebarMenuItem>
           <SidebarMenuButton size="lg" as-child>
             <a href="/">
-              <div class="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+              <div class="flex mt-1 aspect-square size-10 items-center justify-center rounded-lg text-sidebar-primary-foreground">
                 <img src="/logo.png" alt="logo nusantara kita">
               </div>
               <div class="flex flex-col gap-0.5 leading-none">
-                <span class="font-medium">Nusantara Kita</span>
+                <span class="text-base font-medium">Nusantara Kita</span>
                 <span class="">v2.0</span>
               </div>
             </a>

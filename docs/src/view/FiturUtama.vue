@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-1 flex-col gap-4 p-4 md:p-10">
+  <div class="flex flex-1 flex-col gap-4 p-4 md:p-10 2xl:max-w-6xl">
     <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
       <h2 class="text-xl font-semibold text-gray-800 mb-2">Fitur Utama:</h2>
       <ul class="list-inside list-disc text-gray-700 space-y-2">
