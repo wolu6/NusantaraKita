@@ -31,7 +31,7 @@
     "db:migrate": "npx prisma migrate dev",
     "db:reset": "prisma migrate reset && prisma migrate dev",
     "db:studio": "prisma studio",
-    "start": "node public/index.js",
+    "start": "node build/index.js",
     "format": "npx prettier --write .",
     "format:check": "npx prettier --check ."
   },
