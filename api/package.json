@@ -26,12 +26,8 @@
   "scripts": {
     "build": "tsc --project ./",
     "dev": "nodemon index.ts",
+    "start": "node dist/index.js",
     "postinstall": "prisma generate",
-    "db:generate": "prisma generate",
-    "db:migrate": "npx prisma migrate dev",
-    "db:reset": "prisma migrate reset && prisma migrate dev",
-    "db:studio": "prisma studio",
-    "start": "node build/index.js",
     "format": "npx prettier --write .",
     "format:check": "npx prettier --check ."
   },
