@@ -10,12 +10,12 @@ routes.get('/', (req: Request, res: Response): void => {
 
 routes.get('/health', async (req, res) => {
   try {
-    await prisma.$queryRaw`SELECT 1`;
-    res.status(200).json({ status: 'connected' });
+    await prisma.$queryRaw`SELECT 1`
+    res.status(200).json({ status: 'connected' })
   } catch (error) {
-    res.status(500).json({ status: 'disconnected', error: error.message });
+    res.status(500).json({ status: 'disconnected', error: error.message })
   }
-});
+})
 
 routes.use('/v2', V2)
 
