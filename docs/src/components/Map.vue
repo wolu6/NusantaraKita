@@ -1,7 +1,28 @@
+<template>
+  <div
+    ref="mapContainer"
+    class="h-[500px] w-full rounded-md border"
+    style="z-index: 0"
+  />
+</template>
+
 <script setup lang="ts">
+import L from 'leaflet'
 import { onUnmounted, onMounted, ref, watch } from 'vue'
 import 'leaflet/dist/leaflet.css'
-import L from 'leaflet'
+
+const fixLeafletIcon = () => {
+  L.Icon.Default.mergeOptions({
+    iconRetinaUrl: new URL(
+      'leaflet/dist/images/marker-icon-2x.png',
+      import.meta.url
+    ).href,
+    iconUrl: new URL('leaflet/dist/images/marker-icon.png', import.meta.url)
+      .href,
+    shadowUrl: new URL('leaflet/dist/images/marker-shadow.png', import.meta.url)
+      .href
+  })
+}
 
 const props = defineProps({
   lat: {
@@ -49,6 +70,8 @@ const initMap = () => {
   }
 }
 
+fixLeafletIcon()
+
 watch(
   () => [props.lat, props.lng, props.namaProvinsi],
   () => {
@@ -67,11 +90,3 @@ onUnmounted(() => {
   }
 })
 </script>
-
-<template>
-  <div
-    ref="mapContainer"
-    class="h-[500px] w-full rounded-md border"
-    style="z-index: 0"
-  ></div>
-</template>
