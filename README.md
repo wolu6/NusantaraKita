@@ -18,8 +18,8 @@ Nusantara Kita adalah sebuah API yang menyediakan data wilayah Indonesia. Projec
 </p>
 
 URL:
-- [API](https://api.nusakita.yuefii.site)
-- [DOKUMENTASI](https://nusakita.yuefii.site)
+- API = [https://api.nusakita.yuefii.site](https://api.nusakita.yuefii.site)
+- DOKUMENTASI = [https://nusakita.yuefii.site](https://nusakita.yuefii.site)
 
 ENDPOINT:
 - `/v2/provinsi`
