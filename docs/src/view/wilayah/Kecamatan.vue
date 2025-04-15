@@ -1,7 +1,9 @@
 <template>
   <div class="flex flex-1 flex-col gap-4 p-4">
     <div class="p-8">
-      <h1 class="p-4 text-2xl md:text-3xl font-bold text-gray-800">
+      <h1
+        class="container mx-auto p-4 text-2xl md:text-3xl font-bold text-gray-800"
+      >
         Data Kecamatan
       </h1>
       <DetailDataKecamatan />
