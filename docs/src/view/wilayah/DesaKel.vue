@@ -5,12 +5,7 @@
         Data Desa/Kelurahan
       </h1>
 
-      <div v-if="loading" class="text-center py-[200px]">
-        <div
-          class="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-zinc-700 mb-2"
-        ></div>
-        <p>Memuat data...</p>
-      </div>
+      <Loading v-if="loading" />
 
       <div
         v-else-if="error"
@@ -39,6 +34,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
+import Loading from '@/components/Loading.vue'
 import TabelPagination from '@/components/TabelPagination.vue'
 
 interface Pagination {
