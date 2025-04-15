@@ -13,6 +13,8 @@ import {
   type SidebarProps,
   SidebarRail
 } from '@/components/ui/sidebar'
+import SidebarFooter from './ui/sidebar/SidebarFooter.vue'
+import { Github } from 'lucide-vue-next'
 
 const props = defineProps<SidebarProps>()
 
@@ -144,6 +146,16 @@ const data = {
         </SidebarMenu>
       </SidebarGroup>
     </SidebarContent>
+    <SidebarFooter>
+      <a
+        target="_blank"
+        class="bg-zinc-700 p-2 rounded-md text-white font-semibold text-sm flex justify-center items-center gap-x-2"
+        href="https://github.com/Yuefii/NusantaraKita"
+      >
+        <Github />
+        SOURCE CODE
+      </a>
+    </SidebarFooter>
     <SidebarRail />
   </Sidebar>
 </template>
