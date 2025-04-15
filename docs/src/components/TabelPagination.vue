@@ -24,9 +24,7 @@
     <div class="flex items-center justify-between mt-4">
       <div class="text-sm text-gray-700">
         Menampilkan
-        {{
-          (pagination.halaman_saat_ini - 1) * pagination.ukuran_halaman + 1
-        }}
+        {{ (pagination.halaman_saat_ini - 1) * pagination.ukuran_halaman + 1 }}
         sampai
         {{
           Math.min(
