@@ -7,19 +7,11 @@
 
       <Loading v-if="loading" />
 
-      <div
+      <ErrorFetchData
         v-else-if="error"
-        class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-4"
-      >
-        <p class="font-bold">Terjadi kesalahan</p>
-        <p>{{ error }}</p>
-        <button
-          @click="fetchData(pagination.halaman_saat_ini)"
-          class="mt-2 px-3 py-1 bg-red-100 hover:bg-red-200 rounded text-red-700 transition-colors"
-        >
-          Coba Lagi
-        </button>
-      </div>
+        :message="error"
+        :on-retry="() => fetchData(pagination.halaman_saat_ini)"
+      />
 
       <TabelPagination
         v-else
@@ -35,6 +27,7 @@
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
 import Loading from '@/components/Loading.vue'
+import ErrorFetchData from '@/components/ErrorFetchData.vue'
 import TabelPagination from '@/components/TabelPagination.vue'
 
 interface Pagination {
