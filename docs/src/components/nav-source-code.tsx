@@ -13,14 +13,19 @@ export function NavSourceCode() {
       <SidebarMenuItem>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <SidebarMenuButton size="lg" className="bg-sidebar-primary hover:bg-sidebar-primary/90">
-              <div className="flex items-center justify-center text-center gap-3 text-white flex-1">
-                <span className="font-medium text-2xl truncate">
-                  <FaGithub />
-                </span>
-                <span className={cn("text-sm truncate transition-all", !open && "hidden")}>SOURCE CODE</span>
-              </div>
-            </SidebarMenuButton>
+            <a href="https://github.com/Yuefii/nusantarakita" target="_blank" rel="noopener noreferrer" className="block w-full">
+              <SidebarMenuButton
+                size="lg"
+                className="bg-sidebar-primary  hover:bg-sidebar-primary/80 text-white  active:bg-sidebar-primary/80 hover:text-white cursor-pointer"
+              >
+                <div className="flex items-center justify-center text-center gap-3 text-white flex-1">
+                  <span className="font-medium text-2xl truncate">
+                    <FaGithub />
+                  </span>
+                  <span className={cn("text-sm truncate transition-all", !open && "hidden")}>SOURCE CODE</span>
+                </div>
+              </SidebarMenuButton>
+            </a>
           </DropdownMenuTrigger>
         </DropdownMenu>
       </SidebarMenuItem>
