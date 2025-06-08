@@ -2,32 +2,28 @@ name: API CI/CD
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
-  check-formating-test-build:
+  test:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          node-version: '22'
+          python-version: "3.13"
 
-      - name: Install dependencies
+      - name: Install packages and dependencies
         run: |
-          cd api
-          npm install
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
-      - name: Checking formating code style
+      - name: Run tests with pytest
         run: |
-          cd api
-          npm run format:check
-
-      - name: Build API
-        run: |
-          cd api
-          npm run build
+          pytest tests/
