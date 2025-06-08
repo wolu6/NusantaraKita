@@ -83,8 +83,12 @@ Menjalankan Projectnya menggunakan `pip`
   pip install -r requirements.txt
   ```
 - Running project:
-  ```
+  ```bash
   uvicorn generate:app --reload
+  ```
+- Testing project:
+  ```bash
+  pytest tests/
   ```
 
 ## ⚙️ License
