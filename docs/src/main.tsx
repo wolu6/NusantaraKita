@@ -6,6 +6,6 @@ import { routers } from "./routes/routes.ts";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={routers} />;
+    <RouterProvider router={routers} />
   </StrictMode>
 );
