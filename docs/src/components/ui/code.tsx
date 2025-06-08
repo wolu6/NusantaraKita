@@ -42,7 +42,7 @@ const Code: React.FC<CodeProps> = ({ content, showCopyButton = false }) => {
           {renderCopyButtonIcon}
         </Button>
       )}
-      <pre className="overflow-x-auto text-gray-200 text-sm font-mono whitespace-pre-wrap break-all">
+      <pre className="overflow-x-auto no-scrollbar text-gray-200 text-sm font-mono whitespace-pre">
         <code>{content}</code>
       </pre>
     </div>
