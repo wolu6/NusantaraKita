@@ -85,8 +85,8 @@ const ProvinsiData = ({ data, isError, isLoading, isSuccess, isPending }: Provin
           </div>
           <div className="flex-1">
             <AlertTitle className="text-xl font-bold text-red-500 mb-2">Gagal Memuat Data</AlertTitle>
-            <AlertDescription className="text-red-500 leading-relaxed flex">
-              Maaf, terjadi kesalahan saat memuat data.{" "}
+            <AlertDescription className="text-red-500 leading-relaxed">
+              <span>Maaf, terjadi kesalahan saat memuat data. </span>
               <span className="cursor-pointer underline font-semibold" onClick={() => window.history.back()}>
                 Kembali
               </span>
