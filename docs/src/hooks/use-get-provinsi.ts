@@ -7,12 +7,14 @@ export const getProvinsi = async (params?: ParamsApi): Promise<ProvinsiApiRes> =
 };
 
 const useGetProvinsi = (options: ParamsApi) => {
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading, isError, isSuccess, isPending } = useQuery({
     queryKey: ["provinsi", options],
     queryFn: () => getProvinsi(options),
+    refetchOnWindowFocus: false,
+    retry: false,
   });
 
-  return { data, isLoading, isError };
+  return { data, isLoading, isError, isSuccess, isPending };
 };
 
 export default useGetProvinsi;
