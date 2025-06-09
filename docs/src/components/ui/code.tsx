@@ -1,5 +1,6 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { TbCopy, TbCopyCheck, TbCopyCheckFilled } from "react-icons/tb";
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { Button } from "./button";
 
 interface CodeProps {
@@ -9,6 +10,9 @@ interface CodeProps {
 
 const Code: React.FC<CodeProps> = ({ content, showCopyButton = false }) => {
   const [copyButtonIcon, setCopyButtonIcon] = useState<"COPY" | "COPIED" | "FAILED">("COPY");
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [showExpandButton, setShowExpandButton] = useState(false);
+  const preRef = useRef<HTMLPreElement>(null);
 
   const handleCopy = async () => {
     try {
@@ -35,6 +39,13 @@ const Code: React.FC<CodeProps> = ({ content, showCopyButton = false }) => {
     }
   }, [copyButtonIcon]);
 
+  useEffect(() => {
+    const preEl = preRef.current;
+    if (preEl && preEl.scrollHeight > 300) {
+      setShowExpandButton(true);
+    }
+  }, [content]);
+
   return (
     <div className="relative bg-[#4A4A4A] p-4 rounded-md shadow-md">
       {showCopyButton && (
@@ -42,9 +53,29 @@ const Code: React.FC<CodeProps> = ({ content, showCopyButton = false }) => {
           {renderCopyButtonIcon}
         </Button>
       )}
-      <pre className="overflow-x-auto no-scrollbar text-gray-200 text-sm font-mono whitespace-pre">
+
+      <pre
+        ref={preRef}
+        className={`overflow-x-auto no-scrollbar text-gray-200 text-sm font-mono whitespace-pre transition-all duration-300 ${
+          isExpanded ? "max-h-none" : "max-h-[300px] overflow-y-auto"
+        }`}
+      >
         <code>{content}</code>
       </pre>
+
+      {showExpandButton && (
+        <div className="flex justify-center mt-3">
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={() => setIsExpanded((prev) => !prev)}
+            className="cursor-pointer"
+            aria-label={isExpanded ? "Tutup" : "Lihat Selengkapnya"}
+          >
+            {isExpanded ? <FiChevronUp /> : <FiChevronDown />}
+          </Button>
+        </div>
+      )}
     </div>
   );
 };
