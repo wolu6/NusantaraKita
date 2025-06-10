@@ -29,7 +29,7 @@ type KabKotaApi = {
 type KecamatanApi = {
   kode: string; // Kode unik kecamatan
   nama: string; // Nama kecamatan
-  kode_kab_kota: string; // Kode kabupaten/kota induk
+  kode_kabupaten_kota: string; // Kode kabupaten/kota induk
   lat: number; // Koordinat latitude
   lng: number; // Koordinat longitude
 };

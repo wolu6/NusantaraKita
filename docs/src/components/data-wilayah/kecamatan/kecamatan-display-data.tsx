@@ -19,11 +19,11 @@ interface KecamatanProps {
   isPending: boolean;
 }
 
-const KecamatanTableHeaders = ["Kode Kecamatan", "Kode Kab", "Nama Kecamatan", "Latitude", "Longitude"];
+const KecamatanTableHeaders = ["Kode Kab/Kota", "Kode Kecamatan", "Nama Kecamatan", "Latitude", "Longitude"];
 
 const parseKecamatanTable = (kecamatan: KecamatanApi) => ({
+  "Kode Kab/Kota": kecamatan.kode_kabupaten_kota,
   "Kode Kecamatan": kecamatan.kode,
-  "Kode Kab": kecamatan.kode_kab_kota,
   "Nama Kecamatan": kecamatan.nama,
   Latitude: kecamatan.lat,
   Longitude: kecamatan.lng,
@@ -32,8 +32,8 @@ const parseKecamatanTable = (kecamatan: KecamatanApi) => ({
 const parseKecamatanCard = (kecamatan: KecamatanApi) => [
   {
     icon: FaMap,
-    title: "Kode Kab",
-    value: kecamatan.kode_kab_kota,
+    title: "Kode Kab/Kota",
+    value: kecamatan.kode_kabupaten_kota,
   },
   {
     icon: FaHashtag,
