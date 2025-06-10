@@ -20,7 +20,7 @@ export const Provinsi = () => {
 
   return (
     <section className={cn("bg-white text-gray-800 max-w-5xl", { "p-5": isSmallScreen, "p-8": !isSmallScreen })}>
-      <h1 className="text-3xl font-bold mb-10 text-gray-700">Data Wilayah - API Provinsi</h1>
+      <h1 className="text-3xl font-bold mb-10 text-gray-700">Data Wilayah - Provinsi</h1>
 
       <ProvinsiDescription />
 
