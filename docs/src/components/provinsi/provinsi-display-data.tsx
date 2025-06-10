@@ -46,9 +46,11 @@ export const ProvinsiDisplayData = ({ data, isError, isLoading, isSuccess, isPen
           <div className="flex-1">
             <AlertTitle className="text-xl font-bold text-red-500 mb-2">Gagal Memuat Data</AlertTitle>
             <AlertDescription className="text-red-500 leading-relaxed">
-              <span>Maaf, terjadi kesalahan saat memuat data. </span>
-              <span className="cursor-pointer underline font-semibold" onClick={() => window.history.back()}>
-                Kembali
+              <span>
+                Maaf, terjadi kesalahan saat memuat data.{" "}
+                <span className="font-semibold underline cursor-pointer" onClick={() => window.history.back()}>
+                  Kembali
+                </span>
               </span>
             </AlertDescription>
           </div>

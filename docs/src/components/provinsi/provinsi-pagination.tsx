@@ -11,12 +11,16 @@ export const ProvinsiPagination = ({ data, isLoading, isPending }: PaginationPro
   const isShowPagination = data?.pagination;
 
   const renderPagination = useMemo(() => {
-    if (!data?.pagination) return null;
+    if (isLoading || isPending) return <SkeletonPagination />;
+
+    if (!data) return null;
+    if (!data.pagination) return null;
 
     if (isShowPagination) {
       return <AppPagination currentPage={data.pagination.halaman_saat_ini} totalPages={data.pagination.total_halaman} />;
-    } else if (isLoading || isPending) return <SkeletonPagination />;
-    else return null;
+    }
+
+    return null;
   }, [isShowPagination, data, isLoading, isPending]);
 
   return <>{renderPagination}</>;
