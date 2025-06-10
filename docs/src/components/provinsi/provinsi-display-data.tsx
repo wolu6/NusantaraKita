@@ -24,6 +24,27 @@ const parseProvinsi = (provinsi: ProvinsiApi) => ({
   Longitude: provinsi.lng,
 });
 
+const ProvinsiErrorAlert = () => {
+  return (
+    <Alert variant="destructive" className="border-red-500 bg-red-100 flex items-start gap-4">
+      <div className="text-red-600 text-2xl">
+        <MdErrorOutline />
+      </div>
+      <div className="flex-1">
+        <AlertTitle className="text-xl font-bold text-red-500 mb-2">Gagal Memuat Data</AlertTitle>
+        <AlertDescription className="text-red-500 leading-relaxed">
+          <span>
+            Maaf, terjadi kesalahan saat memuat data.{" "}
+            <span className="font-semibold underline cursor-pointer" onClick={() => window.history.back()}>
+              Kembali
+            </span>
+          </span>
+        </AlertDescription>
+      </div>
+    </Alert>
+  );
+};
+
 export const ProvinsiDisplayData = ({ data, isError, isLoading, isSuccess, isPending }: ProvinsiDataProps) => {
   const { state } = useResponseType();
   const isShowData = isSuccess && data?.data;
@@ -37,26 +58,7 @@ export const ProvinsiDisplayData = ({ data, isError, isLoading, isSuccess, isPen
       return <Skeleton className="h-50" />;
     }
 
-    if (isError) {
-      return (
-        <Alert variant="destructive" className="border-red-500 bg-red-100 flex items-start gap-4">
-          <div className="text-red-600 text-2xl">
-            <MdErrorOutline />
-          </div>
-          <div className="flex-1">
-            <AlertTitle className="text-xl font-bold text-red-500 mb-2">Gagal Memuat Data</AlertTitle>
-            <AlertDescription className="text-red-500 leading-relaxed">
-              <span>
-                Maaf, terjadi kesalahan saat memuat data.{" "}
-                <span className="font-semibold underline cursor-pointer" onClick={() => window.history.back()}>
-                  Kembali
-                </span>
-              </span>
-            </AlertDescription>
-          </div>
-        </Alert>
-      );
-    }
+    if (isError) return <ProvinsiErrorAlert />;
 
     if (isShowData && state.dataType === "TABLE") {
       return <Table columnHeaders={provinsiTableHeaders} rowData={data.data.map(parseProvinsi)} />;
