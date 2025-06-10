@@ -1,6 +1,6 @@
-import { KabupatenKodeDescription } from "@/components/kabupatenKota/kabupaten-kota-description";
-import { KabupatenKotaDisplayData } from "@/components/kabupatenKota/kabupaten-kota-display-data";
-import { KabupatenKotaPagination } from "@/components/kabupatenKota/kabupaten-kota-pagination";
+import { KabupatenKodeDescription } from "@/components/data-wilayah/kabupaten-kota/kabupaten-kota-description";
+import { KabupatenKotaDisplayData } from "@/components/data-wilayah/kabupaten-kota/kabupaten-kota-display-data";
+import { KabupatenKotaPagination } from "@/components/data-wilayah/kabupaten-kota/kabupaten-kota-pagination";
 import LimitPerPage from "@/components/ui/limit-per-page";
 import ResponseTypeSwitch from "@/components/ui/response-type";
 import useGetKabKota from "@/hooks/use-get-kab-kota";

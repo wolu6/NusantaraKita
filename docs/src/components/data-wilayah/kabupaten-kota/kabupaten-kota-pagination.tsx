@@ -1,13 +1,13 @@
 import { useMemo } from "react";
-import AppPagination, { SkeletonPagination } from "../ui/app-pagination";
+import AppPagination, { SkeletonPagination } from "../../ui/app-pagination";
 
 interface PaginationProps {
-  data: ProvinsiApiRes | undefined;
+  data: KabKotaApiRes | undefined;
   isLoading: boolean;
   isPending: boolean;
 }
 
-export const ProvinsiPagination = ({ data, isLoading, isPending }: PaginationProps) => {
+export const KabupatenKotaPagination = ({ data, isLoading, isPending }: PaginationProps) => {
   const isShowPagination = data?.pagination;
 
   const renderPagination = useMemo(() => {

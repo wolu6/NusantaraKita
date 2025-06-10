@@ -1,6 +1,6 @@
-import { ProvinsiDescription } from "@/components/provinsi/provinsi-description";
-import { ProvinsiDisplayData } from "@/components/provinsi/provinsi-display-data";
-import { ProvinsiPagination } from "@/components/provinsi/provinsi-pagination";
+import { ProvinsiDescription } from "@/components/data-wilayah/provinsi/provinsi-description";
+import { ProvinsiDisplayData } from "@/components/data-wilayah/provinsi/provinsi-display-data";
+import { ProvinsiPagination } from "@/components/data-wilayah/provinsi/provinsi-pagination";
 import LimitPerPage from "@/components/ui/limit-per-page";
 import ResponseTypeSwitch from "@/components/ui/response-type";
 import useGetProvinsi from "@/hooks/use-get-provinsi";

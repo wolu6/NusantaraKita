@@ -2,14 +2,14 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { useMemo } from "react";
 import { FaArrowsAltH, FaArrowsAltV, FaHashtag, FaMap, FaMapMarkerAlt } from "react-icons/fa";
 import { MdErrorOutline } from "react-icons/md";
-import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
-import { CardList } from "../ui/card-list";
-import Code from "../ui/code";
-import { useResponseType } from "../ui/response-type";
-import { CardListSkeleton } from "../ui/skelekton-card-list";
-import SkeletonTable from "../ui/skelekton-table";
-import { Skeleton } from "../ui/skeleton";
-import Table from "../ui/table";
+import { Alert, AlertDescription, AlertTitle } from "../../ui/alert";
+import { CardList } from "../../ui/card-list";
+import Code from "../../ui/code";
+import { useResponseType } from "../../ui/response-type";
+import { CardListSkeleton } from "../../ui/skelekton-card-list";
+import SkeletonTable from "../../ui/skelekton-table";
+import { Skeleton } from "../../ui/skeleton";
+import Table from "../../ui/table";
 
 interface KabKotaProps {
   data: KabKotaApiRes | undefined;

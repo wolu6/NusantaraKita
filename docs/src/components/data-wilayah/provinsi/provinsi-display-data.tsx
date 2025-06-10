@@ -2,14 +2,14 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { useMemo } from "react";
 import { FaArrowsAltH, FaArrowsAltV, FaHashtag, FaMapMarkerAlt } from "react-icons/fa";
 import { MdErrorOutline } from "react-icons/md";
-import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
-import { CardList } from "../ui/card-list";
-import Code from "../ui/code";
-import { useResponseType } from "../ui/response-type";
-import { CardListSkeleton } from "../ui/skelekton-card-list";
-import SkeletonTable from "../ui/skelekton-table";
-import { Skeleton } from "../ui/skeleton";
-import Table from "../ui/table";
+import Code from "../../ui/code";
+import Table from "../../ui/table";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { useResponseType } from "@/components/ui/response-type";
+import SkeletonTable from "@/components/ui/skelekton-table";
+import { CardListSkeleton } from "@/components/ui/skelekton-card-list";
+import { Skeleton } from "@/components/ui/skeleton";
+import { CardList } from "@/components/ui/card-list";
 
 interface ProvinsiDataProps {
   data: ProvinsiApiRes | undefined;
