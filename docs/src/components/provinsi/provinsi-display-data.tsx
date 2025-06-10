@@ -1,15 +1,15 @@
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useMemo } from "react";
-import { IoIosCompass, IoIosInformationCircle, IoIosLocate, IoIosPin } from "react-icons/io";
+import { FaArrowsAltH, FaArrowsAltV, FaHashtag, FaMapMarkerAlt } from "react-icons/fa";
 import { MdErrorOutline } from "react-icons/md";
 import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
 import { CardList } from "../ui/card-list";
 import Code from "../ui/code";
 import { useResponseType } from "../ui/response-type";
+import { CardListSkeleton } from "../ui/skelekton-card-list";
 import SkeletonTable from "../ui/skelekton-table";
 import { Skeleton } from "../ui/skeleton";
 import Table from "../ui/table";
-import { CardListSkeleton } from "../ui/skelekton-card-list";
 
 interface ProvinsiDataProps {
   data: ProvinsiApiRes | undefined;
@@ -30,22 +30,22 @@ const parseProvinsi = (provinsi: ProvinsiApi) => ({
 
 const parseProvinsiCard = (provinsi: ProvinsiApi) => [
   {
-    icon: IoIosInformationCircle,
+    icon: FaHashtag,
     title: "Kode",
     value: provinsi.kode.toString(),
   },
   {
-    icon: IoIosPin,
+    icon: FaMapMarkerAlt,
     title: "Provinsi",
     value: provinsi.nama,
   },
   {
-    icon: IoIosLocate,
+    icon: FaArrowsAltV,
     title: "Latitude",
     value: provinsi.lat.toString(),
   },
   {
-    icon: IoIosCompass,
+    icon: FaArrowsAltH,
     title: "Longitude",
     value: provinsi.lng.toString(),
   },
@@ -79,7 +79,7 @@ export const ProvinsiDisplayData = ({ data, isError, isLoading, isSuccess, isPen
   const isShowData = isSuccess && data?.data;
 
   const parsedProvinsiCard = useMemo(() => (!data?.data ? [] : data.data.map(parseProvinsiCard)), [data]);
-  const parsedProcinsiTable = useMemo(() => (!data?.data ? [] : data.data.map(parseProvinsi)), [data]);
+  const parsedProvinsiTable = useMemo(() => (!data?.data ? [] : data.data.map(parseProvinsi)), [data]);
 
   const renderData = useMemo(() => {
     const isTableShowData = isShowData && state.dataType === "TABLE";
@@ -91,11 +91,11 @@ export const ProvinsiDisplayData = ({ data, isError, isLoading, isSuccess, isPen
     if (isError) return <ProvinsiErrorAlert />;
 
     if (isTableShowData && isMobile) return <CardList listData={parsedProvinsiCard} />;
-    if (isTableShowData) return <Table columnHeaders={provinsiTableHeaders} rowData={parsedProcinsiTable} />;
+    if (isTableShowData) return <Table columnHeaders={provinsiTableHeaders} rowData={parsedProvinsiTable} />;
 
     if (isShowData && state.dataType === "JSON") return <Code content={JSON.stringify(data, null, 2)} showCopyButton />;
     return null;
-  }, [data, isShowData, state.dataType, isLoading, isPending, isError, isMobile, parsedProcinsiTable, parsedProvinsiCard]);
+  }, [data, isShowData, state.dataType, isLoading, isPending, isError, isMobile, parsedProvinsiTable, parsedProvinsiCard]);
 
   return <div>{renderData}</div>;
 };
