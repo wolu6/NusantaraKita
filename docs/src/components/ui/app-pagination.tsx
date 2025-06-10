@@ -66,7 +66,7 @@ function renderPaginationItem(item: PaginationItemType, index: number, currentPa
   }
 
   const isActive = item.value === currentPage;
-  const linkClassName = isActive ? "hover:bg-black/70 bg-black text-white hover:text-white" : "hover:bg-black";
+  const linkClassName = isActive ? "hover:bg-black/70 bg-black text-white hover:text-white" : "hover:bg-black hover:text-white";
 
   return (
     <PaginationItem key={key}>
@@ -113,7 +113,7 @@ export default function AppPagination({ currentPage, totalPages }: PaginationPro
       <PaginationContent className="gap-1 sm:gap-2">
         {shouldShowPreviousButton(isFirstPage, isMobile) && (
           <PaginationItem>
-            <PaginationPrevious onClick={goToPreviousPage} className="hover:bg-black" aria-disabled={isFirstPage} />
+            <PaginationPrevious onClick={goToPreviousPage} className="hover:bg-black hover:text-white" aria-disabled={isFirstPage} />
           </PaginationItem>
         )}
 
@@ -121,7 +121,7 @@ export default function AppPagination({ currentPage, totalPages }: PaginationPro
 
         {shouldShowNextButton(isLastPage, isMobile) && (
           <PaginationItem>
-            <PaginationNext onClick={goToNextPage} className="hover:bg-black" aria-disabled={isLastPage} />
+            <PaginationNext onClick={goToNextPage} className="hover:bg-black hover:text-white" aria-disabled={isLastPage} />
           </PaginationItem>
         )}
       </PaginationContent>
