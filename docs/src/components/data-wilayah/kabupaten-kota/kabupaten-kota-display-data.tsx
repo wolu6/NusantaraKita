@@ -19,11 +19,11 @@ interface KabKotaProps {
   isPending: boolean;
 }
 
-const KabKotaTableHeaders = ["Kode Kabupaten", "Kode Provinsi", "Nama Kab/Kota", "Latitude", "Longitude"];
+const KabKotaTableHeaders = ["Kode Provinsi", "Kode Kab/Kota", "Nama Kab/Kota", "Latitude", "Longitude"];
 
 const parseKabKotaTable = (kabKota: KabKotaApi) => ({
-  "Kode Kab/Kota": kabKota.kode,
   "Kode Provinsi": kabKota.kode_provinsi,
+  "Kode Kab/Kota": kabKota.kode,
   "Nama Kab/Kota": kabKota.nama,
   Latitude: kabKota.lat,
   Longitude: kabKota.lng,
@@ -33,12 +33,12 @@ const parseKabKotCard = (kabKota: KabKotaApi) => [
   {
     icon: FaMap,
     title: "Kode Provinsi",
-    value: kabKota.kode_provinsi.toString(),
+    value: kabKota.kode_provinsi,
   },
   {
     icon: FaHashtag,
-    title: "Kode Kabupaten",
-    value: kabKota.kode.toString(),
+    title: "Kode Kab/Kota",
+    value: kabKota.kode,
   },
   {
     icon: FaMapMarkerAlt,
