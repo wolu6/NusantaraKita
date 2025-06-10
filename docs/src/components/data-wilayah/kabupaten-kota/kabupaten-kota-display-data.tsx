@@ -31,14 +31,14 @@ const parseKabKotaTable = (kabKota: KabKotaApi) => ({
 
 const parseKabKotCard = (kabKota: KabKotaApi) => [
   {
-    icon: FaHashtag,
-    title: "Kode Kabupaten",
-    value: kabKota.kode.toString(),
-  },
-  {
     icon: FaMap,
     title: "Kode Provinsi",
     value: kabKota.kode_provinsi.toString(),
+  },
+  {
+    icon: FaHashtag,
+    title: "Kode Kabupaten",
+    value: kabKota.kode.toString(),
   },
   {
     icon: FaMapMarkerAlt,
