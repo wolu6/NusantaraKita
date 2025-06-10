@@ -8,7 +8,7 @@ export const getKecamatan = async (params?: ParamsApi): Promise<KecamatanApiRes>
 
 const useGetKecamatan = (options: ParamsApi) => {
   const { data, isLoading, isError, isSuccess, isPending } = useQuery({
-    queryKey: ["kab-kota", options],
+    queryKey: ["kecamatan", options],
     queryFn: () => getKecamatan(options),
     refetchOnWindowFocus: false,
     retry: false,
