@@ -1,0 +1,20 @@
+import axiosInstace from "@/lib/axios";
+import { useQuery } from "@tanstack/react-query";
+
+export const getKecamatan = async (params?: ParamsApi): Promise<KecamatanApiRes> => {
+  const response = await axiosInstace.get("kecamatan", { params });
+  return response.data as KecamatanApiRes;
+};
+
+const useGetKecamatan = (options: ParamsApi) => {
+  const { data, isLoading, isError, isSuccess, isPending } = useQuery({
+    queryKey: ["kab-kota", options],
+    queryFn: () => getKecamatan(options),
+    refetchOnWindowFocus: false,
+    retry: false,
+  });
+
+  return { data, isLoading, isError, isSuccess, isPending };
+};
+
+export default useGetKecamatan;
