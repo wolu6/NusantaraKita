@@ -4,6 +4,3 @@ updates:
     directory: "/api"
     schedule:
       interval: "weekly"
-    ignored:
-      - dependency-name: "uvicorn"
-        versions: ["*"]
