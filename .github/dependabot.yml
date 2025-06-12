@@ -1,0 +1,9 @@
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "/api"
+    schedule:
+      interval: "weekly"
+    ignored:
+      - dependency-name: "uvicorn"
+        versions: ["*"]
