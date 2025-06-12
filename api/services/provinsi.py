@@ -5,7 +5,12 @@ from models.provinsi import Provinsi, ProvinsiListResponse, PaginatedProvinsiRes
 
 
 class ProvinsiService:
-    async def get(self, limit: int, halaman: int, pagination: bool) -> Union[ProvinsiListResponse, PaginatedProvinsiResponse]:
+    async def get(
+            self, 
+            limit: int, 
+            halaman: int, 
+            pagination: bool
+            ) -> Union[ProvinsiListResponse, PaginatedProvinsiResponse]:
         conn = await get_connection()
         async with conn.cursor(aiomysql.DictCursor) as cursor:
             try:
