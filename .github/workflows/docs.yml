@@ -2,12 +2,12 @@ name: Docs CI/CD
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
-  check-formating-test-build:
+  check-lint-build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -15,19 +15,19 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: "22"
 
       - name: Install dependencies
         run: |
           cd docs
           npm install
 
-      - name: Checking formating code style
+      - name: Checking eslint
         run: |
           cd docs
-          npm run format:check
+          npm run lint
 
-      - name: Build Vue app
+      - name: Build React app
         run: |
           cd docs
           npm run build
