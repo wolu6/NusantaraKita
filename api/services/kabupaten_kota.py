@@ -15,7 +15,7 @@ class KabupatenKotaService:
         async with conn.cursor(aiomysql.DictCursor) as cursor:
             try:
                 if not pagination:
-                    await cursor.execute("SELECT * FROM nk_kabupaten_kota")
+                    await cursor.execute("SELECT kode, nama, lat, lng, kode_provinsi FROM nk_kabupaten_kota")
                     data: List[KabupatenKota] = await cursor.fetchall()
                     if not data:
                         raise Exception("tidak ditemukan data")
@@ -37,7 +37,7 @@ class KabupatenKotaService:
 
                 offset: int = (halaman - 1) * limit
                 await cursor.execute(
-                    "SELECT * FROM nk_kabupaten_kota LIMIT %s OFFSET %s", (limit, offset)
+                    "SELECT kode, nama, lat, lng, kode_provinsi FROM nk_kabupaten_kota LIMIT %s OFFSET %s", (limit, offset)
                 )
                 data: List[KabupatenKota] = await cursor.fetchall()
 
@@ -67,7 +67,7 @@ class KabupatenKotaService:
         async with conn.cursor(aiomysql.DictCursor) as cursor:
             try:
                 if not pagination:
-                    await cursor.execute("SELECT * FROM nk_kabupaten_kota WHERE kode_provinsi = %s", 
+                    await cursor.execute("SELECT kode, nama, lat, lng, kode_provinsi FROM nk_kabupaten_kota WHERE kode_provinsi = %s", 
                                          (kode_provinsi,))
                     data: List[KabupatenKota] = await cursor.fetchall()
                     if not data:
@@ -88,7 +88,7 @@ class KabupatenKotaService:
 
                 offset: int = (halaman - 1) * limit
                 await cursor.execute(
-                    "SELECT * FROM nk_kabupaten_kota WHERE kode_provinsi = %s LIMIT %s OFFSET %s",
+                    "SELECT kode, nama, lat, lng, kode_provinsi FROM nk_kabupaten_kota WHERE kode_provinsi = %s LIMIT %s OFFSET %s",
                     (kode_provinsi, limit, offset)
                 )
                 data: List[KabupatenKota] = await cursor.fetchall()

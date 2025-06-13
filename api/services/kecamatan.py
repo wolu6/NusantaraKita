@@ -15,7 +15,7 @@ class KecamatanService:
         async with conn.cursor(aiomysql.DictCursor) as cursor:
             try:
                 if not pagination:
-                    await cursor.execute("SELECT * FROM nk_kecamatan")
+                    await cursor.execute("SELECT kode, nama, lat, lng, kode_kabupaten_kota FROM nk_kecamatan")
                     data: List[Kecamatan] = await cursor.fetchall()
                     if not data:
                         raise Exception("tidak ditemukan data")
@@ -37,7 +37,7 @@ class KecamatanService:
 
                 offset: int = (halaman - 1) * limit
                 await cursor.execute(
-                    "SELECT * FROM nk_kecamatan LIMIT %s OFFSET %s", (limit, offset)
+                    "SELECT kode, nama, lat, lng, kode_kabupaten_kota FROM nk_kecamatan LIMIT %s OFFSET %s", (limit, offset)
                 )
                 data: List[Kecamatan] = await cursor.fetchall()
 
@@ -67,7 +67,7 @@ class KecamatanService:
         async with conn.cursor(aiomysql.DictCursor) as cursor:
             try:
                 if not pagination:
-                    await cursor.execute("SELECT * FROM nk_kecamatan WHERE kode_kabupaten_kota = %s", 
+                    await cursor.execute("SELECT kode, nama, lat, lng, kode_kabupaten_kota FROM nk_kecamatan WHERE kode_kabupaten_kota = %s", 
                                          (kode_kabupaten_kota,))
                     data: List[Kecamatan] = await cursor.fetchall()
                     if not data:
@@ -89,7 +89,7 @@ class KecamatanService:
 
                 offset: int = (halaman - 1) * limit
                 await cursor.execute(
-                    "SELECT * FROM nk_kecamatan WHERE kode_kabupaten_kota = %s LIMIT %s OFFSET %s",
+                    "SELECT kode, nama, lat, lng, kode_kabupaten_kota FROM nk_kecamatan WHERE kode_kabupaten_kota = %s LIMIT %s OFFSET %s",
                     (kode_kabupaten_kota, limit, offset)
                 )
                 data: List[Kecamatan] = await cursor.fetchall()
