@@ -6,15 +6,16 @@ export const getProvinsi = async (params?: ParamsApi): Promise<ProvinsiApiRes> =
   return response.data as ProvinsiApiRes;
 };
 
-const useGetProvinsi = (options: ParamsApi) => {
-  const { data, isLoading, isError, isSuccess, isPending } = useQuery({
+const useGetProvinsi = (options: ParamsApi, queryOptions?: { enabled?: boolean }) => {
+  const { data, isLoading, isError, isSuccess, isPending, refetch, isFetching } = useQuery({
     queryKey: ["provinsi", options],
     queryFn: () => getProvinsi(options),
     refetchOnWindowFocus: false,
     retry: false,
+    enabled: queryOptions?.enabled ?? true,
   });
 
-  return { data, isLoading, isError, isSuccess, isPending };
+  return { data, isLoading, isError, isSuccess, isPending, refetch, isFetching };
 };
 
 export default useGetProvinsi;
