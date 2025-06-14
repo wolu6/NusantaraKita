@@ -44,6 +44,14 @@ API ini berisi seluruh data wilayah indonesia beserta lokasinya mulai dari:
 - Kecamatan
 - Desa/Kelurahan
 
+## Peformance testing API with K6
+
+Overview:
+![overview](./.github/assets/overview.png)
+
+Summary:
+![summary](./.github/assets/summary.png)
+
 ## Instalasi
 
 Langkah-langkah cara install project ini dilokal :
