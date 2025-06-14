@@ -3,7 +3,7 @@ import { DesaKelDisplayData } from "@/components/data-wilayah/desa-kelurahan/des
 import { DesaKelPagination } from "@/components/data-wilayah/desa-kelurahan/desa-kel-pagination";
 import LimitPerPage from "@/components/ui/limit-per-page";
 import ResponseTypeSwitch from "@/components/ui/response-type";
-import useGetDesaKelurahan from "@/hooks/use-get-desa-kelurahan";
+import useGetDesaKelurahan from "@/hooks/get-desa-kelurahan/use-get-desa-kelurahan";
 import { useIsMobile } from "@/hooks/use-mobile";
 import useParams from "@/hooks/use-params";
 import { useIsTablet } from "@/hooks/use-tablet";

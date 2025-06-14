@@ -3,7 +3,7 @@ import { ProvinsiDisplayData } from "@/components/data-wilayah/provinsi/provinsi
 import { ProvinsiPagination } from "@/components/data-wilayah/provinsi/provinsi-pagination";
 import LimitPerPage from "@/components/ui/limit-per-page";
 import ResponseTypeSwitch from "@/components/ui/response-type";
-import useGetProvinsi from "@/hooks/use-get-provinsi";
+import useGetProvinsi from "@/hooks/get-provinsi/use-get-provinsi";
 import { useIsMobile } from "@/hooks/use-mobile";
 import useParams from "@/hooks/use-params";
 import { useIsTablet } from "@/hooks/use-tablet";

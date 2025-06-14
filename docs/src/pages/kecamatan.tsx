@@ -3,7 +3,7 @@ import { KecamatanDisplayData } from "@/components/data-wilayah/kecamatan/kecama
 import { KecamatanPagination } from "@/components/data-wilayah/kecamatan/kecamatan-pagination";
 import LimitPerPage from "@/components/ui/limit-per-page";
 import ResponseTypeSwitch from "@/components/ui/response-type";
-import useGetKecamatan from "@/hooks/use-get-kecamatan";
+import useGetKecamatan from "@/hooks/get-kecamatan/use-get-kecamatan";
 import { useIsMobile } from "@/hooks/use-mobile";
 import useParams from "@/hooks/use-params";
 import { useIsTablet } from "@/hooks/use-tablet";

@@ -3,7 +3,7 @@ import { KabupatenKotaDisplayData } from "@/components/data-wilayah/kabupaten-ko
 import { KabupatenKotaPagination } from "@/components/data-wilayah/kabupaten-kota/kabupaten-kota-pagination";
 import LimitPerPage from "@/components/ui/limit-per-page";
 import ResponseTypeSwitch from "@/components/ui/response-type";
-import useGetKabKota from "@/hooks/use-get-kab-kota";
+import useGetKabKota from "@/hooks/get-kabupaten-kota/use-get-kab-kota";
 import { useIsMobile } from "@/hooks/use-mobile";
 import useParams from "@/hooks/use-params";
 import { useIsTablet } from "@/hooks/use-tablet";
