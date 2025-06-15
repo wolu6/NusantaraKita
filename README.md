@@ -74,14 +74,14 @@ cd api
 Setup Environmentnya:
 
 ```bash
-cp env.example .env
+cp .env.example .env
 ```
 
 Menjalankan Projectnya menggunakan `pip`
 
 - create virtual environment:
   ```bash
-  python3 -m venv venv
+  python -m venv venv
   ```
 - activate virtual environment:
   ```bash
@@ -99,6 +99,14 @@ Menjalankan Projectnya menggunakan `pip`
   ```bash
   pytest tests/
   ```
+
+## References
+
+Dataset yang digunakan dalam project ini berasal dari:
+
+- [https://github.com/cahyadsn/wilayah_boundaries](https://github.com/cahyadsn/wilayah_boundaries)
+
+Kami sangat menghargai pembuat dataset ini. Tanpa adanya data tersebut, project ini tidak akan bisa dikembangkan.
 
 ## ⚙️ License
 
