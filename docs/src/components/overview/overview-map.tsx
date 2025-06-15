@@ -1,6 +1,6 @@
 import { useOverview } from "@/context/overview-provider";
 import { cn } from "@/lib/utils";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 
 const indonesiaPosition: [number, number] = [-2.5489, 118.0149];
@@ -33,8 +33,13 @@ const OverviewMap = () => {
     ? [state.selected.province.lat, state.selected.province.lng]
     : indonesiaPosition;
 
-  // Zoom dinamis: 5 kalau default Indonesia, 10 kalau wilayah dipilih
-  const zoomLevel = activePosition === indonesiaPosition ? 5 : 9;
+  const zoomLevel = useMemo(() => {
+    if (state.selected.desaKel) return 13;
+    if (state.selected.kecamatan) return 10;
+    if (state.selected.kabKota) return 9;
+    if (state.selected.province) return 8;
+    return 6;
+  }, [state.selected]);
 
   return (
     <MapContainer
@@ -45,7 +50,7 @@ const OverviewMap = () => {
     >
       <TileLayer
         attribution='&copy; <a href="https://carto.com/">CartoDB</a>'
-        url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+        url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
       />
 
       <MapUpdater center={activePosition} zoom={zoomLevel} />
